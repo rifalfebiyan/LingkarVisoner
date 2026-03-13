@@ -37,10 +37,10 @@ CREATE POLICY "Admins can manage all programs"
   ON programs
   FOR ALL
   USING (
-    (SELECT (auth.jwt() -> 'user_metadata' ->> 'role') = 'admin')
+    (auth.jwt() -> 'user_metadata' ->> 'role') = 'admin'
   )
   WITH CHECK (
-    (SELECT (auth.jwt() -> 'user_metadata' ->> 'role') = 'admin')
+    (auth.jwt() -> 'user_metadata' ->> 'role') = 'admin'
   );
 
 -- Auto-update updated_at
@@ -52,10 +52,54 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
+DROP TRIGGER IF EXISTS programs_updated_at ON programs;
 CREATE TRIGGER programs_updated_at
   BEFORE UPDATE ON programs
   FOR EACH ROW
   EXECUTE FUNCTION update_updated_at();
+
+-- =============================================
+-- Tabel: aspirations
+-- Kelola data aspirasi dari publik
+-- =============================================
+
+CREATE TABLE IF NOT EXISTS aspirations (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  full_name TEXT NOT NULL,
+  email TEXT NOT NULL,
+  category TEXT NOT NULL,
+  message TEXT NOT NULL,
+  created_at TIMESTAMPTZ DEFAULT now()
+);
+
+-- Enable Row Level Security
+ALTER TABLE aspirations ENABLE ROW LEVEL SECURITY;
+
+-- Policy: Anyone can insert aspirations
+DROP POLICY IF EXISTS "Public can insert aspirations" ON aspirations;
+CREATE POLICY "Public can insert aspirations"
+  ON aspirations
+  FOR INSERT
+  WITH CHECK (true);
+
+-- Policy: Anyone can read aspirations (to display on the page)
+DROP POLICY IF EXISTS "Public can view aspirations" ON aspirations;
+CREATE POLICY "Public can view aspirations"
+  ON aspirations
+  FOR SELECT
+  USING (true);
+
+-- Policy: Admins can delete aspirations
+DROP POLICY IF EXISTS "Admins can manage aspirations" ON aspirations;
+CREATE POLICY "Admins can manage aspirations"
+  ON aspirations
+  FOR ALL
+  USING (
+    (auth.jwt() -> 'user_metadata' ->> 'role') = 'admin'
+  )
+  WITH CHECK (
+    (auth.jwt() -> 'user_metadata' ->> 'role') = 'admin'
+  );
 
 -- =============================================
 -- Storage Bucket: program-images
@@ -80,7 +124,7 @@ CREATE POLICY "Admins can upload program images"
   FOR INSERT
   WITH CHECK (
     bucket_id = 'program-images'
-    AND (SELECT (auth.jwt() -> 'user_metadata' ->> 'role') = 'admin')
+    AND (auth.jwt() -> 'user_metadata' ->> 'role') = 'admin'
   );
 
 -- Policy: Admins can update images
@@ -90,7 +134,7 @@ CREATE POLICY "Admins can update program images"
   FOR UPDATE
   USING (
     bucket_id = 'program-images'
-    AND (SELECT (auth.jwt() -> 'user_metadata' ->> 'role') = 'admin')
+    AND (auth.jwt() -> 'user_metadata' ->> 'role') = 'admin'
   );
 
 -- Policy: Admins can delete images
@@ -100,5 +144,5 @@ CREATE POLICY "Admins can delete program images"
   FOR DELETE
   USING (
     bucket_id = 'program-images'
-    AND (SELECT (auth.jwt() -> 'user_metadata' ->> 'role') = 'admin')
+    AND (auth.jwt() -> 'user_metadata' ->> 'role') = 'admin'
   );
