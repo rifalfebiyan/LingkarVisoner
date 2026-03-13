@@ -81,7 +81,17 @@ export default function Footer() {
         </div>
       </div>
       <div className="mx-auto mt-12 w-full border-t border-slate-800 pt-8 text-center text-xs">
-        <p>© 2026 Lingkar Visioner - Powered by Warunk Digital.</p>
+        <p>
+          © 2026 Lingkar Visioner - Powered by{" "}
+          <a
+            href="https://warunkdigital.vercel.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-bold transition-colors hover:text-primary"
+          >
+            Warunk Digital
+          </a>.
+        </p>
       </div>
     </footer>
   );
