@@ -20,7 +20,7 @@ export default function ProgramPage() {
               Pendaftaran Dibuka
             </span>
             <h1 className="mb-6 text-4xl font-black uppercase leading-tight text-white md:text-6xl tracking-tighter">
-              Program Unggulan 2024
+              Program Unggulan 2026
             </h1>
             <p className="mb-10 text-lg font-bold leading-relaxed text-slate-200 md:text-xl border-l-4 border-blue-400 pl-4 bg-slate-900/50 py-2">
               Membentuk pemimpin masa depan melalui inovasi sosial, kewirausahaan, dan dampak nyata bagi masyarakat.
@@ -77,7 +77,7 @@ export default function ProgramPage() {
               </p>
               <div className="mt-auto flex items-center justify-between border-t-4 border-slate-900 pt-4 dark:border-slate-100">
                 <span className="font-black text-amber-600 dark:text-amber-400 uppercase tracking-wider text-sm bg-slate-100 dark:bg-slate-800 px-2 py-1">
-                  Mulai Sep 2024
+                  Mulai Sep 2026
                 </span>
                 <button className="border-4 border-slate-900 bg-slate-900 px-6 py-2 font-black uppercase text-white transition-all hover:bg-amber-400 hover:text-slate-900 shadow-[4px_4px_0px_0px_rgba(15,23,42,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none dark:border-slate-100 dark:bg-white dark:text-slate-900 dark:shadow-[4px_4px_0px_0px_rgba(241,245,249,1)] dark:hover:bg-amber-400">
                   Daftar

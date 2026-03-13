@@ -24,7 +24,7 @@ export default function BeritaPage() {
           </div>
           <div className="flex w-full flex-col justify-center gap-5 p-8 lg:w-[40%] lg:p-12">
             <span className="text-xs font-black uppercase tracking-[0.2em] text-teal-700 dark:text-teal-400 font-display">
-              Visi Kepemimpinan 2024
+              Visi Kepemimpinan 2026
             </span>
             <h1 className="text-3xl font-black leading-tight text-slate-900 dark:text-slate-100 md:text-4xl uppercase tracking-tighter mix-blend-difference">
               Melahirkan Pemimpin Visioner di Tengah Gejolak Politik Global
@@ -127,7 +127,7 @@ export default function BeritaPage() {
                 <span className="text-4xl font-black text-slate-700 block mb-2 group-hover:text-teal-400 transition-colors">01</span>
                 <div>
                   <h5 className="text-base font-black uppercase leading-tight transition-colors group-hover:text-teal-400">
-                    Arah Koalisi Strategis Menjelang Kontestasi 2024
+                    Arah Koalisi Strategis Menjelang Kontestasi 2026
                   </h5>
                   <p className="mt-2 text-[10px] font-black text-slate-400 tracking-widest bg-slate-800 inline-block px-2 py-1">4 JAM YANG LALU</p>
                 </div>

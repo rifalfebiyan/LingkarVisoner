@@ -81,7 +81,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="mx-auto mt-12 w-full border-t border-slate-800 pt-8 text-center text-xs">
-        <p>© 2024 Lingkar Visioner Organization. Vision for Better Tomorrow.</p>
+        <p>© 2026 Lingkar Visioner Organization. Vision for Better Tomorrow.</p>
       </div>
     </footer>
   );

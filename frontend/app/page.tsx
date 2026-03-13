@@ -69,7 +69,7 @@ export default function Home() {
             <div className="flex flex-1 flex-col p-6">
               <div className="mb-4 flex items-center gap-2 border-l-2 border-slate-900 pl-2 dark:border-slate-100 text-xs font-black uppercase tracking-widest text-slate-500 dark:text-slate-400">
                 <span className="material-symbols-outlined text-sm">calendar_month</span>
-                <span>15 Mei 2024</span>
+                <span>15 Mei 2026</span>
               </div>
               <h3 className="mb-4 text-2xl font-black uppercase leading-tight text-slate-900 dark:text-slate-100 decoration-4 underline-offset-4 group-hover:underline decoration-amber-400">
                 Aksi Literasi Desa Terpadu
@@ -98,7 +98,7 @@ export default function Home() {
             <div className="flex flex-1 flex-col p-6">
               <div className="mb-4 flex items-center gap-2 border-l-2 border-slate-900 pl-2 dark:border-slate-100 text-xs font-black uppercase tracking-widest text-slate-500 dark:text-slate-400">
                 <span className="material-symbols-outlined text-sm">calendar_month</span>
-                <span>10 Mei 2024</span>
+                <span>10 Mei 2026</span>
               </div>
               <h3 className="mb-4 text-2xl font-black uppercase leading-tight text-slate-900 dark:text-slate-100 decoration-4 underline-offset-4 group-hover:underline decoration-teal-400">
                 Startup Leadership Bootcamp
@@ -127,7 +127,7 @@ export default function Home() {
             <div className="flex flex-1 flex-col p-6">
               <div className="mb-4 flex items-center gap-2 border-l-2 border-slate-900 pl-2 dark:border-slate-100 text-xs font-black uppercase tracking-widest text-slate-500 dark:text-slate-400">
                 <span className="material-symbols-outlined text-sm">calendar_month</span>
-                <span>02 Mei 2024</span>
+                <span>02 Mei 2026</span>
               </div>
               <h3 className="mb-4 text-2xl font-black uppercase leading-tight text-slate-900 dark:text-slate-100 decoration-4 underline-offset-4 group-hover:underline decoration-indigo-400">
                 Forum Dialektika Kebijakan
@@ -160,7 +160,7 @@ export default function Home() {
               </div>
               <div className="flex-grow text-center md:text-left">
                 <h4 className="mb-3 text-xl font-black uppercase text-slate-900 dark:text-white">
-                  Pendaftaran 'Future Leaders Cohort 2024' Dibuka
+                  Pendaftaran 'Future Leaders Cohort 2026' Dibuka
                 </h4>
                 <p className="text-sm font-bold text-slate-600 dark:text-slate-400 border-l-4 border-teal-500 pl-4 py-1">
                   Kesempatan bagi mahasiswa untuk mengikuti program mentoring eksklusif selama 6 bulan.
