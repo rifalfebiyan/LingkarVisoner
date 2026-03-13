@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
@@ -28,11 +29,15 @@ export default function Navbar() {
     <header className="fixed top-0 z-50 w-full border-b-4 border-slate-900 bg-white/95 px-6 py-4 backdrop-blur-md dark:border-slate-100 dark:bg-background-dark/95 md:px-12 lg:px-24">
       <div className="mx-auto flex w-full items-center justify-between">
         <div className="flex items-center gap-8">
-          <Link href="/" className="flex items-center gap-3 text-primary">
-            <span className="material-symbols-outlined text-3xl font-bold">diversity_3</span>
-            <h1 className="text-xl font-black uppercase tracking-tighter dark:text-white">
-              Lingkar<span className="text-slate-900 dark:text-slate-300">Visioner</span>
-            </h1>
+          <Link href="/" className="flex items-center gap-3">
+            <Image
+              src="/logo-livi.png"
+              alt="Lingkar Visioner Logo"
+              width={180}
+              height={45}
+              className="h-9 w-auto object-contain dark:brightness-0 dark:invert"
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation */}
