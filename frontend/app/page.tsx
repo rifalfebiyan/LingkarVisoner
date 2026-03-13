@@ -33,9 +33,11 @@ export default function Home() {
                   </button>
                 </Link>
               </div>
-              <button className="border-4 border-white bg-transparent px-8 py-4 font-black uppercase tracking-widest text-white backdrop-blur-sm transition-all hover:-translate-y-1 hover:bg-white hover:text-slate-900 shadow-[6px_6px_0px_0px_rgba(255,255,255,1)] hover:shadow-[10px_10px_0px_0px_rgba(255,255,255,1)]">
-                Gabung Komunitas
-              </button>
+              <Link href="https://chat.whatsapp.com/D7g6WKGbfDIHU8UYS7AMIs">
+                <button className="border-4 border-white bg-transparent px-8 py-4 font-black uppercase tracking-widest text-white backdrop-blur-sm transition-all hover:-translate-y-1 hover:bg-white hover:text-slate-900 shadow-[6px_6px_0px_0px_rgba(255,255,255,1)] hover:shadow-[10px_10px_0px_0px_rgba(255,255,255,1)]">
+                  Gabung Komunitas
+                </button>
+              </Link>
             </div>
           </div>
         </div>
