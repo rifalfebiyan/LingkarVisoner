@@ -45,6 +45,15 @@ export default function Navbar() {
               Fokus
             </Link> */}
             <Link
+              href="/aspirasi"
+              className={`text-sm font-bold transition-colors hover:text-primary dark:hover:text-primary ${pathname === "/aspirasi"
+                ? "border-b-2 border-primary pb-1 text-primary"
+                : "text-slate-600 dark:text-slate-300"
+                }`}
+            >
+              Aspirasi
+            </Link>
+            <Link
               href="/program"
               className={`text-sm font-bold transition-colors hover:text-primary dark:hover:text-primary ${pathname === "/program"
                 ? "border-b-2 border-primary pb-1 text-primary"
