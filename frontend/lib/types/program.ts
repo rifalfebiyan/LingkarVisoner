@@ -21,6 +21,7 @@ export interface Program {
   time_range: string | null;
   max_participants: number;
   current_participants: number;
+  registration_url: string | null;
   created_at: string;
   updated_at: string;
 }
@@ -35,4 +36,5 @@ export interface ProgramFormData {
   location: string;
   time_range: string;
   max_participants: number;
+  registration_url: string;
 }

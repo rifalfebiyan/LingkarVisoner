@@ -14,7 +14,8 @@ CREATE TABLE IF NOT EXISTS programs (
   status TEXT NOT NULL DEFAULT 'draft' CHECK (status IN ('draft', 'active', 'completed', 'archived')),
   location TEXT,
   time_range TEXT,
-  max_participants INT DEFAULT 0,
+  registration_url TEXT,
+  max_participants INTEGER DEFAULT 0,
   current_participants INT DEFAULT 0,
   created_at TIMESTAMPTZ DEFAULT now(),
   updated_at TIMESTAMPTZ DEFAULT now()
@@ -137,7 +138,7 @@ CREATE POLICY "Admins can update program images"
     AND (auth.jwt() -> 'user_metadata' ->> 'role') = 'admin'
   );
 
--- Policy: Admins can delete images
+-- Policy: Admins can delete imagesa
 DROP POLICY IF EXISTS "Admins can delete program images" ON storage.objects;
 CREATE POLICY "Admins can delete program images"
   ON storage.objects
@@ -146,3 +147,5 @@ CREATE POLICY "Admins can delete program images"
     bucket_id = 'program-images'
     AND (auth.jwt() -> 'user_metadata' ->> 'role') = 'admin'
   );
+
+  

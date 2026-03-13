@@ -117,9 +117,16 @@ export default async function ProgramPage() {
                             ? `Mulai ${new Date(program.start_date).toLocaleDateString("id-ID", { month: "short", year: "numeric" })}`
                             : "Segera Hadir"}
                         </span>
-                        <button className={`border-4 border-slate-900 bg-slate-900 px-6 py-2 font-black uppercase text-white transition-all hover:${colors.bg} hover:text-slate-900 shadow-[4px_4px_0px_0px_rgba(15,23,42,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none dark:border-slate-100 dark:bg-white dark:text-slate-900 dark:shadow-[4px_4px_0px_0px_rgba(241,245,249,1)]`}>
-                          Daftar
-                        </button>
+                        <a 
+                          href={program.registration_url || "#"} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="block"
+                        >
+                          <button className={`w-full border-4 border-slate-900 bg-slate-900 px-6 py-2 font-black uppercase text-white transition-all hover:${colors.bg} hover:text-slate-900 shadow-[4px_4px_0px_0px_rgba(15,23,42,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none dark:border-slate-100 dark:bg-white dark:text-slate-900 dark:shadow-[4px_4px_0px_0px_rgba(241,245,249,1)]`}>
+                            Daftar
+                          </button>
+                        </a>
                       </div>
                       <div className="flex flex-col gap-1.5 text-xs font-bold text-slate-600 dark:text-slate-400">
                         {program.location && (
@@ -195,9 +202,16 @@ export default async function ProgramPage() {
                       )}
                     </div>
                   </div>
-                  <button className="w-full md:w-auto border-4 border-slate-900 bg-transparent px-6 py-3 font-black uppercase text-slate-900 transition-all hover:bg-slate-900 hover:text-white dark:border-slate-100 dark:text-white dark:hover:bg-white dark:hover:text-slate-900 shadow-[4px_4px_0px_0px_rgba(15,23,42,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none dark:shadow-[4px_4px_0px_0px_rgba(241,245,249,1)]">
-                    Ingatkan Saya
-                  </button>
+                  <a 
+                    href={program.registration_url || "#"} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="w-full md:w-auto"
+                  >
+                    <button className="w-full border-4 border-slate-900 bg-transparent px-6 py-3 font-black uppercase text-slate-900 transition-all hover:bg-slate-900 hover:text-white dark:border-slate-100 dark:text-white dark:hover:bg-white dark:hover:text-slate-900 shadow-[4px_4px_0px_0px_rgba(15,23,42,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none dark:shadow-[4px_4px_0px_0px_rgba(241,245,249,1)]">
+                      Daftar
+                    </button>
+                  </a>
                 </div>
               );
             })

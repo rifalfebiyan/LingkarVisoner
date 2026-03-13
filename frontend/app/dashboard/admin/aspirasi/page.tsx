@@ -256,7 +256,7 @@ export default function AdminAspirasiPage() {
                             </DropdownMenuContent>
                           </DropdownMenu>
 
-                          <DialogContent className="sm:max-w-[500px]">
+                          <DialogContent className="sm:max-w-4xl">
                             <DialogHeader>
                               <DialogTitle>Detail Aspirasi</DialogTitle>
                               <DialogDescription>

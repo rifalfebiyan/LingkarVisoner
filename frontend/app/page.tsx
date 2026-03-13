@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from 'next/link';
 
 export default function Home() {
   return (
@@ -19,15 +20,19 @@ export default function Home() {
               Kepemimpinan & Perubahan Sosial
             </span>
             <h1 className="mb-6 text-4xl font-black uppercase leading-tight text-white md:text-6xl tracking-tighter">
-              Mencetak Pemimpin <span className="text-teal-400">Masa Depan</span>
+              SATU LINGKAR <span className="text-teal-400">SERIBU VISI</span>
             </h1>
             <p className="mb-10 text-lg font-bold leading-relaxed text-slate-200 md:text-xl border-l-4 border-teal-400 pl-4 bg-slate-900/50 py-2 text-left md:text-center">
               Lingkar Visioner adalah wadah kolaborasi untuk mengasah kepemimpinan, keterampilan organisasi, kepekaan politik, dan jiwa kewirausahaan demi dampak sosial yang nyata.
             </p>
             <div className="flex flex-wrap justify-center gap-6">
-              <button className="flex items-center gap-3 border-4 border-white bg-teal-600 px-8 py-4 font-black uppercase tracking-widest text-white transition-all hover:-translate-y-1 hover:bg-teal-500 shadow-[6px_6px_0px_0px_rgba(255,255,255,1)] hover:shadow-[10px_10px_0px_0px_rgba(255,255,255,1)]">
-                Lihat Program <span className="material-symbols-outlined text-xl">arrow_forward</span>
-              </button>
+              <div className="flex flex-wrap justify-center gap-6">
+                <Link href="/program" className="inline-block">
+                  <button className="flex items-center gap-3 border-4 border-white bg-teal-600 px-8 py-4 font-black uppercase tracking-widest text-white transition-all hover:-translate-y-1 hover:bg-teal-500 shadow-[6px_6px_0px_0px_rgba(255,255,255,1)] hover:shadow-[10px_10px_0px_0px_rgba(255,255,255,1)]">
+                    Lihat Program <span className="material-symbols-outlined text-xl">arrow_forward</span>
+                  </button>
+                </Link>
+              </div>
               <button className="border-4 border-white bg-transparent px-8 py-4 font-black uppercase tracking-widest text-white backdrop-blur-sm transition-all hover:-translate-y-1 hover:bg-white hover:text-slate-900 shadow-[6px_6px_0px_0px_rgba(255,255,255,1)] hover:shadow-[10px_10px_0px_0px_rgba(255,255,255,1)]">
                 Gabung Komunitas
               </button>

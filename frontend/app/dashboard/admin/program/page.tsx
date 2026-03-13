@@ -92,6 +92,7 @@ const defaultFormData: ProgramFormData = {
   status: "draft",
   location: "",
   time_range: "",
+  registration_url: "",
   max_participants: 0,
 };
 
@@ -172,6 +173,7 @@ export default function AdminProgramPage() {
       status: program.status,
       location: program.location || "",
       time_range: program.time_range || "",
+      registration_url: program.registration_url || "",
       max_participants: program.max_participants || 0,
     });
     setImageFile(null);
@@ -232,6 +234,7 @@ export default function AdminProgramPage() {
           status: formData.status,
           location: formData.location || null,
           time_range: formData.time_range || null,
+          registration_url: formData.registration_url || null,
           max_participants: formData.max_participants,
         })
         .eq("id", editingProgram.id);
@@ -250,6 +253,7 @@ export default function AdminProgramPage() {
         status: formData.status,
         location: formData.location || null,
         time_range: formData.time_range || null,
+        registration_url: formData.registration_url || null,
         max_participants: formData.max_participants,
       });
       if (error) {
@@ -468,7 +472,7 @@ export default function AdminProgramPage() {
 
       {/* Create / Edit Dialog */}
       <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
-        <DialogContent className="max-w-lg max-h-[90vh] overflow-y-auto">
+        <DialogContent className="sm:max-w-4xl max-h-[90vh] overflow-y-auto">
           <DialogHeader>
             <DialogTitle>
               {editingProgram ? "Edit Program" : "Tambah Program Baru"}
@@ -551,7 +555,6 @@ export default function AdminProgramPage() {
                 </Select>
               </div>
             </div>
-
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
                 <Label htmlFor="location">Lokasi</Label>
@@ -572,6 +575,18 @@ export default function AdminProgramPage() {
                   }
                 />
               </div>
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="registration_url">Link Pendaftaran</Label>
+              <Input
+                id="registration_url"
+                placeholder="Contoh: https://forms.gle/..."
+                value={formData.registration_url}
+                onChange={(e) =>
+                  setFormData({ ...formData, registration_url: e.target.value })
+                }
+              />
             </div>
 
             <div className="grid grid-cols-2 gap-4">
