@@ -110,24 +110,24 @@ export default function TentangKamiPage() {
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
           {[
             {
-              name: 'Dr. Aris Munandar',
-              role: 'Ketua Dewan Pengawas',
-              img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuD9Z9PLl0Sd_jru8oz_w2QNso6HPJsJu_e9RUn0gIqdaSU36ow3Bmps0ERvTaOki10E5CGH6DnIdbIhWE0c_r3Yt2Gzuyp4tRwQBSE4H6jFBKVBCjb1Q2p72Mb1KcDBJkeK5wZAnA-SA7wFCZ4EYY-uZ40PGJOGqVhgDkDrUO1Gn4wQQGHi3gvYR5yIp0MkBZlx_JoclrGhqT18QAhrL5HaiTsklD3B_oEgyamfhWFHVvnT9kEFmseb81f-b6_KBh1-LEsmpbh6xsyZ',
+              name: 'Arrijal Firmansyah, S.Kom',
+              role: 'Ketua Lingkar Visioner',
+              img: '/lead.svg',
             },
             {
-              name: 'Siska Pratama, MBA',
-              role: 'Direktur Pengembangan Organisasi',
-              img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDVjimVCPsn2hK8hnh-GzEHpSuzeZd7EI1k_wO4P71JcE7CDIMfrIKYq3nXhdnvBAXsymgSFzR-OQib_G0cgViHJ5Fyi0rB262605uU4HXK-XSiAYdRxtyAZ64UJGl917Ypb7ZBgu-Gyatu0ogTz3c2j8QPNDACD4SDqwY33N289q3RIu1v-PmxK6XE8KPtqdqnzVF0lxfJW2daiWAaCO9ZDs2veF7eT01rAEFNyY57P2y3f9FE1ZPKQaLiXbNTave6y0yspCJY52fP',
+              name: 'Muhammad Ikhsan Anugerah, S.Kom',
+              role: 'Wakil Ketua Lingkar Visioner',
+              img: '/lead2.svg',
             },
             {
-              name: 'Bimo Wicaksono',
-              role: 'Kepala Divisi Kebijakan Publik',
-              img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCaY1hoAiq3Qody9PgMCeUHkiNEHb3WpikkRVnej3qztkfabNmCfGesCZzXvoeKjrzHNPxgqIPKq1724OqKiQiFUXquwpoeR8MKtQmqRAo3RI_6ZRs4AhZ6P4rw3_n0w5H78TLlm77Ls_Tq1zoQ4DW_uyKnW6wXcZw8EWHyn2stYOn05A4NOjWLiGN7TdWbw54uncjsQtIOt0r5cC8IcJmZerpBwMHfjyUPMeoJkBAb5A1MMtPgS9I4522quwpq-XEx95JATDduYqtp',
+              name: 'Nindra Novianti Putri',
+              role: 'Bendahara Umum',
+              img: '/lead3.svg',
             },
             {
-              name: 'Maya Indrawati',
-              role: 'Ketua Inkubasi Bisnis',
-              img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCQpvkr8slnAIlzg643Cki2SnKtsfZweTed3oSxdEEA5W-5-r8Utz4IPsxWDIRTINVzTvdF5-hRD5315_gEFX0LLaYi4c3FzbXoHOmoKXNQRQkTUZGY4mIJXWjFlVOvJV9GgC93PAhefKSAC1mtleTEOn_qN4ArSrnLiabpotpnELS8SjT1FWcxy44BaEh6rhQP3_LPVYxEmKBQ9DlIIgg8qKH-JCjzgyON_dcye_VFCZoqUa4vvmLdgVTLluUetDh9sT-_9SZJyqeF',
+              name: 'Seldy Apriandi, S.H',
+              role: 'Sekretaris Umum',
+              img: '/lead4.svg',
             },
           ].map((leader, index) => (
             <div key={index} className="group relative">
