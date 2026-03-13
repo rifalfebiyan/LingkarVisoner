@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export default function ProgramPage() {
   return (
-    <main className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+    <main className="mx-auto max-w-none px-6 py-10 md:px-12 lg:px-24">
       {/* Hero Banner: Program Unggulan */}
       <section className="mb-16">
         <div className="group relative flex min-h-[400px] items-center justify-center overflow-hidden border-4 border-slate-900 bg-slate-900 p-8 text-center shadow-[12px_12px_0px_0px_rgba(15,23,42,1)] dark:border-slate-100 dark:shadow-[12px_12px_0px_0px_rgba(241,245,249,1)]">

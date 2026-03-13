@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 export default function BeritaPage() {
   return (
-    <main className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+    <main className="mx-auto max-w-none px-6 py-10 md:px-12 lg:px-24">
       {/* Hero Feature */}
       <div className="mb-12">
         <div className="flex flex-col overflow-hidden rounded-none border-4 border-slate-900 bg-white shadow-[8px_8px_0px_0px_rgba(15,23,42,1)] dark:border-slate-100 dark:bg-slate-900 dark:shadow-[8px_8px_0px_0px_rgba(241,245,249,1)] lg:flex-row">
