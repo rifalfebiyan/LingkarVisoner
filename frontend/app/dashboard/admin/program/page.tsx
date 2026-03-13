@@ -91,6 +91,7 @@ const defaultFormData: ProgramFormData = {
   start_date: "",
   status: "draft",
   location: "",
+  time_range: "",
   max_participants: 0,
 };
 
@@ -170,6 +171,7 @@ export default function AdminProgramPage() {
       start_date: program.start_date || "",
       status: program.status,
       location: program.location || "",
+      time_range: program.time_range || "",
       max_participants: program.max_participants || 0,
     });
     setImageFile(null);
@@ -229,6 +231,7 @@ export default function AdminProgramPage() {
           start_date: formData.start_date || null,
           status: formData.status,
           location: formData.location || null,
+          time_range: formData.time_range || null,
           max_participants: formData.max_participants,
         })
         .eq("id", editingProgram.id);
@@ -246,6 +249,7 @@ export default function AdminProgramPage() {
         start_date: formData.start_date || null,
         status: formData.status,
         location: formData.location || null,
+        time_range: formData.time_range || null,
         max_participants: formData.max_participants,
       });
       if (error) {
@@ -548,13 +552,26 @@ export default function AdminProgramPage() {
               </div>
             </div>
 
-            <div className="space-y-2">
-              <Label htmlFor="location">Lokasi</Label>
-              <LocationSearch
-                value={formData.location || ""}
-                onChange={(val) => setFormData({ ...formData, location: val })}
-                placeholder="Contoh: Jakarta Convention Center"
-              />
+            <div className="grid grid-cols-2 gap-4">
+              <div className="space-y-2">
+                <Label htmlFor="location">Lokasi</Label>
+                <LocationSearch
+                  value={formData.location || ""}
+                  onChange={(val) => setFormData({ ...formData, location: val })}
+                  placeholder="Contoh: Jakarta Convention Center"
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="time_range">Jam Kegiatan</Label>
+                <Input
+                  id="time_range"
+                  placeholder="Contoh: 09:00 - 15:00 WIB"
+                  value={formData.time_range}
+                  onChange={(e) =>
+                    setFormData({ ...formData, time_range: e.target.value })
+                  }
+                />
+              </div>
             </div>
 
             <div className="grid grid-cols-2 gap-4">

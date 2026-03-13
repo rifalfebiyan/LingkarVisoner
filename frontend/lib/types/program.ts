@@ -18,6 +18,7 @@ export interface Program {
   start_date: string | null;
   status: ProgramStatus;
   location: string | null;
+  time_range: string | null;
   max_participants: number;
   current_participants: number;
   created_at: string;
@@ -32,5 +33,6 @@ export interface ProgramFormData {
   start_date: string;
   status: ProgramStatus;
   location: string;
+  time_range: string;
   max_participants: number;
 }

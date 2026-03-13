@@ -121,12 +121,20 @@ export default async function ProgramPage() {
                           Daftar
                         </button>
                       </div>
-                      {program.location && (
-                        <div className="flex items-center gap-1.5 text-xs font-bold text-slate-600 dark:text-slate-400">
-                          <span className="material-symbols-outlined text-sm">location_on</span>
-                          <span className="truncate">{program.location}</span>
-                        </div>
-                      )}
+                      <div className="flex flex-col gap-1.5 text-xs font-bold text-slate-600 dark:text-slate-400">
+                        {program.location && (
+                          <div className="flex items-center gap-1.5">
+                            <span className="material-symbols-outlined text-sm">location_on</span>
+                            <span className="truncate">{program.location}</span>
+                          </div>
+                        )}
+                        {program.time_range && (
+                          <div className="flex items-center gap-1.5">
+                            <span className="material-symbols-outlined text-sm">schedule</span>
+                            <span>{program.time_range}</span>
+                          </div>
+                        )}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -175,6 +183,11 @@ export default async function ProgramPage() {
                       <span className="flex items-center gap-1 bg-slate-100 dark:bg-slate-800 px-2 py-1 border border-slate-300 dark:border-slate-700">
                         <span className="material-symbols-outlined text-base">category</span> {program.category}
                       </span>
+                      {program.time_range && (
+                        <span className="flex items-center gap-1 bg-slate-100 dark:bg-slate-800 px-2 py-1 border border-slate-300 dark:border-slate-700">
+                          <span className="material-symbols-outlined text-base">schedule</span> {program.time_range}
+                        </span>
+                      )}
                       {program.location && (
                         <span className="flex items-center gap-1 bg-slate-100 dark:bg-slate-800 px-2 py-1 border border-slate-300 dark:border-slate-700">
                           <span className="material-symbols-outlined text-base">location_on</span> {program.location}

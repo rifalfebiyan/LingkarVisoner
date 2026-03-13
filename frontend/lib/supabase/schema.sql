@@ -13,6 +13,7 @@ CREATE TABLE IF NOT EXISTS programs (
   start_date DATE,
   status TEXT NOT NULL DEFAULT 'draft' CHECK (status IN ('draft', 'active', 'completed', 'archived')),
   location TEXT,
+  time_range TEXT,
   max_participants INT DEFAULT 0,
   current_participants INT DEFAULT 0,
   created_at TIMESTAMPTZ DEFAULT now(),
@@ -23,6 +24,7 @@ CREATE TABLE IF NOT EXISTS programs (
 ALTER TABLE programs ENABLE ROW LEVEL SECURITY;
 
 -- Policy: Anyone can read active programs
+DROP POLICY IF EXISTS "Public can view active programs" ON programs;
 CREATE POLICY "Public can view active programs"
   ON programs
   FOR SELECT
@@ -30,6 +32,7 @@ CREATE POLICY "Public can view active programs"
 
 -- Policy: Admins can do everything (using user metadata role)
 -- Note: This checks user_metadata for role = 'admin'
+DROP POLICY IF EXISTS "Admins can manage all programs" ON programs;
 CREATE POLICY "Admins can manage all programs"
   ON programs
   FOR ALL
@@ -64,12 +67,14 @@ VALUES ('program-images', 'program-images', true, 2097152)
 ON CONFLICT (id) DO NOTHING;
 
 -- Policy: Anyone can view images
+DROP POLICY IF EXISTS "Public can view program images" ON storage.objects;
 CREATE POLICY "Public can view program images"
   ON storage.objects
   FOR SELECT
   USING (bucket_id = 'program-images');
 
 -- Policy: Admins can upload images
+DROP POLICY IF EXISTS "Admins can upload program images" ON storage.objects;
 CREATE POLICY "Admins can upload program images"
   ON storage.objects
   FOR INSERT
@@ -79,6 +84,7 @@ CREATE POLICY "Admins can upload program images"
   );
 
 -- Policy: Admins can update images
+DROP POLICY IF EXISTS "Admins can update program images" ON storage.objects;
 CREATE POLICY "Admins can update program images"
   ON storage.objects
   FOR UPDATE
@@ -88,6 +94,7 @@ CREATE POLICY "Admins can update program images"
   );
 
 -- Policy: Admins can delete images
+DROP POLICY IF EXISTS "Admins can delete program images" ON storage.objects;
 CREATE POLICY "Admins can delete program images"
   ON storage.objects
   FOR DELETE
