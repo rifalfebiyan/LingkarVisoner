@@ -87,12 +87,12 @@ export default function Navbar() {
 
           {/* Action Buttons (Desktop) */}
           <div className="hidden items-center gap-4 lg:flex">
-            <button className="text-sm font-black uppercase tracking-widest text-slate-600 transition-colors hover:text-primary dark:text-slate-300">
+            <Link href="/login" className="text-sm font-black uppercase tracking-widest text-slate-600 transition-colors hover:text-primary dark:text-slate-300">
               Masuk
-            </button>
-            <button className="border-4 border-slate-900 bg-primary px-6 py-2.5 text-sm font-black uppercase tracking-widest text-white shadow-[4px_4px_0px_0px_rgba(15,23,42,1)] transition-all hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_rgba(15,23,42,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none dark:border-slate-100 dark:shadow-[4px_4px_0px_0px_rgba(241,245,249,1)]">
+            </Link>
+            <Link href="/daftar" className="border-4 border-slate-900 bg-primary px-6 py-2.5 text-sm font-black uppercase tracking-widest text-white shadow-[4px_4px_0px_0px_rgba(15,23,42,1)] transition-all hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_rgba(15,23,42,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none dark:border-slate-100 dark:shadow-[4px_4px_0px_0px_rgba(241,245,249,1)]">
               Gabung Gerakan
-            </button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
