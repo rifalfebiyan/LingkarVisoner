@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { createClient } from '@/lib/supabase/client';
 import type { Aspiration, AspirationFormData } from '@/lib/types/aspirasi';
 import { Loader2, CheckCircle2 } from 'lucide-react';
+import Link from 'next/link';
 
 export default function AspirasiPage() {
   const supabase = createClient();
@@ -223,9 +224,12 @@ export default function AspirasiPage() {
                 ))
               )}
             </div>
-            <button className="mt-8 w-full border-4 border-slate-900 bg-slate-900 py-3 font-black uppercase tracking-widest text-white transition-all hover:bg-slate-800 dark:border-slate-100 dark:bg-white dark:text-slate-900 shadow-[4px_4px_0px_0px_rgba(15,23,42,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none">
+            <Link 
+              href="/aspirasi/semua"
+              className="mt-8 block w-full text-center border-4 border-slate-900 bg-slate-900 py-3 font-black uppercase tracking-widest text-white transition-all hover:bg-slate-800 dark:border-slate-100 dark:bg-white dark:text-slate-900 shadow-[4px_4px_0px_0px_rgba(15,23,42,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
+            >
               Lihat Semua Suara
-            </button>
+            </Link>
           </div>
         </section>
       </div>
