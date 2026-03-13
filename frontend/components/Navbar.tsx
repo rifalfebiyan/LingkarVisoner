@@ -2,11 +2,19 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useTheme } from "next-themes";
 
 export default function Navbar() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
+  const { theme, setTheme, resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  // Avoid hydration mismatch
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const navLinks = [
     { href: "/", label: "Beranda" },
@@ -17,7 +25,7 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b-4 border-slate-900 bg-white/95 px-6 py-4 backdrop-blur-md dark:border-slate-100 dark:bg-background-dark/95 md:px-12 lg:px-24">
+    <header className="fixed top-0 z-50 w-full border-b-4 border-slate-900 bg-white/95 px-6 py-4 backdrop-blur-md dark:border-slate-100 dark:bg-background-dark/95 md:px-12 lg:px-24">
       <div className="mx-auto flex w-full items-center justify-between">
         <div className="flex items-center gap-8">
           <Link href="/" className="flex items-center gap-3 text-primary">
@@ -54,6 +62,23 @@ export default function Navbar() {
               type="text"
             />
           </div>
+
+          {/* Theme Toggle */}
+          <button
+            onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
+            className="flex h-10 w-10 items-center justify-center rounded-lg border-2 border-slate-900 text-slate-900 transition-all hover:bg-slate-100 dark:border-slate-100 dark:text-white dark:hover:bg-slate-800"
+            aria-label="Toggle theme"
+          >
+            {mounted ? (
+              resolvedTheme === "dark" ? (
+                <span className="material-symbols-outlined">light_mode</span>
+              ) : (
+                <span className="material-symbols-outlined">dark_mode</span>
+              )
+            ) : (
+              <div className="h-5 w-5 animate-pulse rounded-full bg-slate-200 dark:bg-slate-700"></div>
+            )}
+          </button>
 
           {/* Action Buttons (Desktop) */}
           <div className="hidden items-center gap-4 lg:flex">

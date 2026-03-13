@@ -34,11 +34,11 @@ export default function TentangKamiPage() {
                 Filosofi Pergerakan
               </h2>
               <h3 className="mb-6 text-4xl font-black uppercase leading-tight text-slate-900 dark:text-white">
-                Membangun Ekosistem Visioner yang Tangguh
+                {/* Membangun Ekosistem Visioner yang Tangguh */}
+                “Mengeduaksi Generasi Muda Untuk Literasi Digital dan Pola Pikir Fungsional”
               </h3>
               <p className="text-lg font-medium leading-relaxed text-slate-700 dark:text-slate-300">
-                Lingkar Visioner hadir sebagai katalisator bagi individu yang memiliki aspirasi tinggi untuk membawa
-                perubahan nyata di berbagai sektor strategis.
+                Lingkar Visioner hadir sebagai wadah kolaborasi strategis untuk pengembangan kepemimpinan, organisasi, politik, dan kewirausahaan demi kemajuan bangsa.
               </p>
             </div>
             <div className="grid gap-8">
@@ -49,8 +49,7 @@ export default function TentangKamiPage() {
                 <div>
                   <h4 className="mb-2 text-2xl font-black uppercase text-slate-900">Visi Kami</h4>
                   <p className="text-base font-bold text-slate-900">
-                    Menjadi sentra pengembangan pemimpin yang berintegritas, kompeten, dan memiliki daya saing global di
-                    bidang politik dan ekonomi.
+                    Menjadi pelopor dalam penyelenggaraan workshop kepemimpinan, organisasi, dan kewirausahaan di Kabupaten Ketapang untuk membentuk generasi muda yang visioner, berkarakter, dan berdaya saing.
                   </p>
                 </div>
               </div>
@@ -59,11 +58,23 @@ export default function TentangKamiPage() {
                   <span className="material-symbols-outlined text-3xl text-slate-900">diversity_3</span>
                 </div>
                 <div>
-                  <h4 className="mb-2 text-2xl font-black uppercase text-slate-900">Misi Kami</h4>
-                  <p className="text-base font-bold text-slate-900">
-                    Menyediakan platform edukasi, jejaring, dan inkubasi bagi para organisatoris dan entrepreneur untuk
-                    menciptakan dampak sosial berkelanjutan.
-                  </p>
+                  <h4 className="mb-4 text-2xl font-black uppercase text-slate-900">Misi Kami</h4>
+                  <ul className="space-y-4 text-base font-bold text-slate-900">
+                    {[
+                      "Menyelenggarakan berbagai kegiatan edukatif seperti webinar, talkshow, dan diskusi kepemudaan yang membahas kepemimpinan, organisasi, politik, dan kewirausahaan.",
+                      "Menyediakan edukasi melalui media sosial tentang pentingnya personal branding dan pemanfaatan media digital secara bijak dan produktif.",
+                      "Berjejaring dan berkolaborasi dengan organisasi di sekolah, kampus, maupun luar kampus untuk berdiskusi dan meningkatkan kesadaran akan pentingnya berorganisasi serta peran pemuda dalam pembangunan.",
+                      "Mengembangkan program mentoring dan pelatihan untuk membentuk generasi muda yang berpikir kritis, komunikatif, dan kolaboratif.",
+                      "Menjalin kemitraan strategis dengan lembaga pendidikan, komunitas, dan instansi terkait untuk memperluas dampak kegiatan dan pengembangan kapasitas pemuda."
+                    ].map((item, i) => (
+                      <li key={i} className="flex gap-3">
+                        <span className="flex h-6 w-8 shrink-0 items-center justify-center border-2 border-slate-900 bg-white text-[10px] font-black">
+                          {["I", "II", "III", "IV", "V"][i]}
+                        </span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             </div>
@@ -216,7 +227,7 @@ export default function TentangKamiPage() {
 
           <div className="relative z-10">
             <h2 className="mb-6 text-4xl font-black uppercase md:text-6xl tracking-tighter">
-              Jadilah Bagian<br/>dari Perubahan
+              Jadilah Bagian<br />dari Perubahan
             </h2>
             <p className="mx-auto mb-10 max-w-2xl text-xl font-bold border-y-4 border-slate-900 py-4 bg-teal-400/50">
               Mari berkolaborasi membangun masa depan Indonesia yang lebih inklusif dan progresif.
