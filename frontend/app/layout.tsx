@@ -23,6 +23,9 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Lingkar Visioner",
   description: "Membentuk pemimpin masa depan",
+  verification: {
+    google: "t4oyTwy8y4bSAhsIkwRV0qQN_jdpHEVhFYKa1JsTK2w",
+  },
 };
 
 export default function RootLayout({
