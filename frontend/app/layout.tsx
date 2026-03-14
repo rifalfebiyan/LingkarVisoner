@@ -60,6 +60,11 @@ export const metadata: Metadata = {
   verification: {
     google: "t4oyTwy8y4bSAhsIkwRV0qQN_jdpHEVhFYKa1JsTK2w",
   },
+  icons: {
+    icon: '/logo-livi.png',
+    shortcut: '/logo-livi.png',
+    apple: '/logo-livi.png',
+  },
 };
 
 export default function RootLayout({
