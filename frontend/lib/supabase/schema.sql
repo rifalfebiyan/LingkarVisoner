@@ -149,3 +149,8 @@ CREATE POLICY "Admins can delete program images"
   );
 
   
+-- Tambahkan kolom registration_url ke tabel programs
+ALTER TABLE programs ADD COLUMN IF NOT EXISTS registration_url TEXT;
+
+-- Pastikan PostgREST memperbarui cache (opsional, biasanya otomatis)
+NOTIFY pgrst, 'reload schema';
