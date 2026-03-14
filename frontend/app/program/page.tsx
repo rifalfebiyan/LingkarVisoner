@@ -1,5 +1,11 @@
 import { createClient } from "@/lib/supabase/server";
 import type { Program } from "@/lib/types/program";
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Program Komunitas",
+  description: "Daftar program dan kegiatan strategis Lingkar Visioner untuk pengembangan kapasitas pemuda Indonesia.",
+};
 
 export default async function ProgramPage() {
   const supabase = await createClient();

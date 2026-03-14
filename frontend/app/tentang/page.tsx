@@ -1,5 +1,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Tentang Kami",
+  description: "Kenali lebih dekat Lingkar Visioner (LIVI). Visi, misi, dan tim di balik wadah perkembangan pemuda di Kabupaten Ketapang.",
+};
 
 export default function TentangKamiPage() {
   return (

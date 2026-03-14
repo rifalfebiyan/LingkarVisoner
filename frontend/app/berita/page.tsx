@@ -1,5 +1,11 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Berita & Gagasan",
+  description: "Update terbaru, artikel kepemimpinan, dan opini seputar isu terkini dari Lingkar Visioner.",
+};
 
 export default function BeritaPage() {
   return (

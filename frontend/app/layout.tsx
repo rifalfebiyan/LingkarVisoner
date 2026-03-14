@@ -21,8 +21,42 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Lingkar Visioner",
-  description: "Membentuk pemimpin masa depan",
+  title: {
+    default: "Lingkar Visioner",
+    template: "%s | Lingkar Visioner",
+  },
+  description: "Wadah kolaborasi strategis untuk pengembangan kepemimpinan, organisasi, politik, dan kewirausahaan pemuda.",
+  keywords: ["Lingkar Visioner", "LIVI", "Kepemimpinan Pemuda", "Organisasi", "Politik Pemuda", "Kewirausahaan", "Ketapang", "Pemuda Visioner"],
+  authors: [{ name: "Lingkar Visioner" }],
+  creator: "Lingkar Visioner",
+  publisher: "Lingkar Visioner",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  openGraph: {
+    type: "website",
+    locale: "id_ID",
+    url: "https://lingkarvisioner.com",
+    siteName: "Lingkar Visioner",
+    title: "Lingkar Visioner - Wadah Perkembangan Pemuda",
+    description: "Membentuk pemimpin masa depan melalui inovasi sosial, kewirausahaan, dan dampak nyata bagi masyarakat.",
+    images: [
+      {
+        url: "/og-image.png", // Assuming this will be created or exists
+        width: 1200,
+        height: 630,
+        alt: "Lingkar Visioner",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Lingkar Visioner",
+    description: "Wadah kolaborasi strategis untuk pengembangan kepemimpinan pemuda.",
+    images: ["/og-image.png"],
+  },
   verification: {
     google: "t4oyTwy8y4bSAhsIkwRV0qQN_jdpHEVhFYKa1JsTK2w",
   },
