@@ -16,11 +16,10 @@ export default function TentangKamiPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-teal-900/80 via-slate-900/80 to-slate-900"></div>
         <div className="relative z-10 p-8 text-center sm:p-12">
           <h1 className="mb-6 text-4xl font-black uppercase leading-tight tracking-tighter text-white md:text-6xl border-b-8 border-amber-500 pb-4 inline-block">
-            Mencetak Pemimpin Masa Depan Indonesia
+            Wadah Perkembangan Pemuda
           </h1>
           <p className="mx-auto max-w-3xl text-lg font-bold leading-relaxed text-slate-200 md:text-xl bg-slate-900/50 p-4 border-l-8 border-teal-500">
-            Wadah kolaborasi strategis untuk pengembangan kepemimpinan, organisasi, politik, dan kewirausahaan demi
-            kemajuan bangsa.
+            Wadah kolaborasi strategis untuk pengembangan kepemimpinan, organisasi, politik, dan kewirausahaan.
           </p>
         </div>
       </section>
