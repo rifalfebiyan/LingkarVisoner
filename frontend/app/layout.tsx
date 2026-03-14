@@ -21,6 +21,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://lingkarvisioner.com"),
   title: {
     default: "Lingkar Visioner",
     template: "%s | Lingkar Visioner",
@@ -35,6 +36,9 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     type: "website",
     locale: "id_ID",
@@ -44,7 +48,7 @@ export const metadata: Metadata = {
     description: "Membentuk pemimpin masa depan melalui inovasi sosial, kewirausahaan, dan dampak nyata bagi masyarakat.",
     images: [
       {
-        url: "/og-image.png", // Assuming this will be created or exists
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "Lingkar Visioner",
@@ -72,11 +76,27 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Lingkar Visioner",
+    "url": "https://lingkarvisioner.com",
+    "logo": "https://lingkarvisioner.com/logo-livi.png",
+    "sameAs": [
+      "https://instagram.com/lingkarvisioner"
+    ],
+    "description": "Wadah kolaborasi strategis untuk pengembangan kepemimpinan, organisasi, politik, dan kewirausahaan pemuda."
+  };
+
   return (
     <html lang="id" suppressHydrationWarning>
       <head>
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} bg-background-light text-slate-900 transition-colors duration-300 dark:bg-background-dark dark:text-slate-100 font-display m-0 p-0 w-full antialiased`}
