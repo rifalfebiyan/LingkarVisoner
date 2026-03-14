@@ -43,7 +43,7 @@ export default async function ProgramPage() {
               {activePrograms.length > 0 ? "Pendaftaran Dibuka" : "Segera Hadir"}
             </span>
             <h1 className="mb-6 text-4xl font-black uppercase leading-tight text-white md:text-6xl tracking-tighter">
-              Program Unggulan 2026
+              Program Komunitas 2026
             </h1>
             <p className="mb-10 text-lg font-bold leading-relaxed text-slate-200 md:text-xl border-l-4 border-blue-400 pl-4 bg-slate-900/50 py-2">
               Membentuk pemimpin masa depan melalui inovasi sosial, kewirausahaan, dan dampak nyata bagi masyarakat.
@@ -117,9 +117,9 @@ export default async function ProgramPage() {
                             ? `Mulai ${new Date(program.start_date).toLocaleDateString("id-ID", { month: "short", year: "numeric" })}`
                             : "Segera Hadir"}
                         </span>
-                        <a 
-                          href={program.registration_url || "#"} 
-                          target="_blank" 
+                        <a
+                          href={program.registration_url || "#"}
+                          target="_blank"
                           rel="noopener noreferrer"
                           className="block"
                         >
@@ -202,9 +202,9 @@ export default async function ProgramPage() {
                       )}
                     </div>
                   </div>
-                  <a 
-                    href={program.registration_url || "#"} 
-                    target="_blank" 
+                  <a
+                    href={program.registration_url || "#"}
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="w-full md:w-auto"
                   >

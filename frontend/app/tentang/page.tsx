@@ -34,10 +34,10 @@ export default function TentangKamiPage() {
               </h2>
               <h3 className="mb-6 text-4xl font-black uppercase leading-tight text-slate-900 dark:text-white">
                 {/* Membangun Ekosistem Visioner yang Tangguh */}
-                “Mengeduaksi Generasi Muda Untuk Literasi Digital dan Pola Pikir Fungsional”
+                “Lingkar Visioner hadir ….”
               </h3>
               <p className="text-lg font-medium leading-relaxed text-slate-700 dark:text-slate-300">
-                Lingkar Visioner hadir sebagai wadah kolaborasi strategis untuk pengembangan kepemimpinan, organisasi, politik, dan kewirausahaan demi kemajuan bangsa.
+                Lingkar Visioner (LIVI) hadir sebagai wadah bagi pemuda untuk belajar, berdiskusi, dan beraksi, khususnya dalam bidang kepemimpinan, organisasi, politik, dan kewirausahaan.
               </p>
             </div>
             <div className="grid gap-8">
@@ -83,7 +83,7 @@ export default function TentangKamiPage() {
               <img
                 alt="Leadership discussion"
                 className="h-[500px] w-full object-cover grayscale transition-transform duration-700 hover:scale-105 hover:grayscale-0"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6cGySBnJgSwVji3dKcMUoP72G1BOTjd4Uo845IwEe9l2DYL2VMuYVujLHGLlxEtpAhISEBSlV1yNNagHjJaxxbFAkOGZn9mBPBLgYnPBJqIo1k1-dkHbg1DI0yLmaCapuNDtzz20vcysZlNRU93x4Vd4PwAv1jTBi-DXYDB2k3EyIcIZ1tA-ptxWDxy_KBZjCm4hkBVSIcyUHSDTjgrX6ehqG2jf7--NlH4xMG8cbEeXgdBRs3W1SxDVMGo3EobZ5grMIEULQhgxI"
+                src="/galeri.jpeg"
               />
             </div>
             <div className="absolute -bottom-8 -right-8 hidden max-w-[240px] border-4 border-slate-900 bg-white p-8 text-slate-900 shadow-[8px_8px_0px_0px_rgba(15,23,42,1)] lg:block dark:border-slate-100 dark:bg-slate-900 dark:text-white dark:shadow-[8px_8px_0px_0px_rgba(241,245,249,1)]">
@@ -99,7 +99,7 @@ export default function TentangKamiPage() {
         <div className="mb-12 text-center md:text-left flex flex-col md:flex-row md:items-end md:justify-between gap-6">
           <div>
             <h2 className="mb-2 inline-block border-slate-900 bg-amber-400 px-3 py-1 text-sm font-black uppercase tracking-[0.2em] text-slate-900 border-2 shadow-[2px_2px_0px_0px_rgba(15,23,42,1)]">
-              Dewan Penasehat
+              Penggerak Awal
             </h2>
             <h3 className="text-4xl font-black uppercase leading-tight tracking-tighter text-slate-900 dark:text-white mt-4">
               Para Penggerak <span className="text-teal-600 dark:text-teal-400">Lingkar Visioner</span>
@@ -170,32 +170,32 @@ export default function TentangKamiPage() {
             Integritas, Intelektualitas, Impact
           </h3>
         </div>
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
           {[
             {
               icon: 'verified',
-              title: 'Etika & Integritas',
-              desc: 'Menjunjung tinggi nilai moral dalam kepemimpinan dan politik tanpa kompromi.',
+              title: 'Inklusif',
+              desc: 'Menjadi ruang bersama yang menghargai perbedaan, menerima berbagai perspektif, serta memberikan kesempatan yang sama bagi setiap anggota untuk belajar, berdiskusi, dan berkembang',
               color: 'bg-amber-400',
             },
             {
               icon: 'psychology',
-              title: 'Ketajaman Berpikir',
-              desc: 'Mengedepankan basis data dan analisis kritis dalam setiap pengambilan keputusan strategis.',
+              title: 'Edukatif',
+              desc: 'Berupaya meningkatkan pengetahuan, literasi digital, serta kemampuan berpikir kritis para pemuda',
               color: 'bg-teal-400',
             },
             {
               icon: 'rocket_launch',
-              title: 'Jiwa Kewirausahaan',
-              desc: 'Mendorong inovasi dan kemandirian ekonomi sebagai fondasi kekuatan bangsa.',
+              title: 'Kolaboratif',
+              desc: 'Perubahan dan dampak yang lebih besar dapat tercapai ketika berbagai ide, kemampuan, dan sumber daya disatukan.',
               color: 'bg-indigo-400',
             },
-            {
-              icon: 'public',
-              title: 'Dampak Sosial',
-              desc: 'Setiap inisiatif diarahkan untuk kemaslahatan masyarakat dan organisasi.',
-              color: 'bg-rose-400',
-            },
+            // {
+            //   icon: 'public',
+            //   title: 'Dampak Sosial',
+            //   desc: 'Setiap inisiatif diarahkan untuk kemaslahatan masyarakat dan organisasi.',
+            //   color: 'bg-rose-400',
+            // },
           ].map((val, idx) => (
             <div
               key={idx}
@@ -226,7 +226,7 @@ export default function TentangKamiPage() {
 
           <div className="relative z-10">
             <h2 className="mb-6 text-4xl font-black uppercase md:text-6xl tracking-tighter">
-              Jadilah Bagian<br />dari Perubahan
+              Jadilah Bagian<br />dari Penggerak
             </h2>
             <p className="mx-auto mb-10 max-w-2xl text-xl font-bold border-y-4 border-slate-900 py-4 bg-teal-400/50">
               Mari berkolaborasi membangun masa depan Indonesia yang lebih inklusif dan progresif.
