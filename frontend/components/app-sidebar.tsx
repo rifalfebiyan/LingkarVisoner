@@ -162,9 +162,11 @@ export function AppSidebar({ user }: { user: any }) {
                   <span>Billing</span>
                 </DropdownMenuItem>
                 <form action="/auth/signout" method="post" className="w-full">
-                  <DropdownMenuItem render={<button className="flex w-full items-center gap-2" />}>
-                    <LogOut className="h-4 w-4" />
-                    <span>Sign out</span>
+                  <DropdownMenuItem className="p-0">
+                    <button type="submit" className="flex w-full items-center gap-2 px-2 py-1.5 text-sm">
+                      <LogOut className="h-4 w-4" />
+                      <span>Sign out</span>
+                    </button>
                   </DropdownMenuItem>
                 </form>
               </DropdownMenuContent>
