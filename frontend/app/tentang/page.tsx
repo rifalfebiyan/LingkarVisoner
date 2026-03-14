@@ -34,7 +34,7 @@ export default function TentangKamiPage() {
               </h2>
               <h3 className="mb-6 text-4xl font-black uppercase leading-tight text-slate-900 dark:text-white">
                 {/* Membangun Ekosistem Visioner yang Tangguh */}
-                “Lingkar Visioner hadir ….”
+                “ Mengedukasi Generasi Muda untuk Literasi Digital dan Pola Pikir Fungsional"
               </h3>
               <p className="text-lg font-medium leading-relaxed text-slate-700 dark:text-slate-300">
                 Lingkar Visioner (LIVI) hadir sebagai wadah bagi pemuda untuk belajar, berdiskusi, dan beraksi, khususnya dalam bidang kepemimpinan, organisasi, politik, dan kewirausahaan.
