@@ -1,7 +1,33 @@
-import Image from "next/image";
+import { createClient } from "@/lib/supabase/server";
+import type { Program } from "@/lib/types/program";
 import Link from 'next/link';
+import Image from 'next/image';
 
-export default function Home() {
+export default async function Home() {
+  const supabase = await createClient();
+
+  const { data: programs } = await supabase
+    .from("programs")
+    .select("*")
+    .eq("status", "active")
+    .order("created_at", { ascending: false })
+    .limit(3);
+
+  const activePrograms: Program[] = programs || [];
+
+  const categoryColors: Record<string, { bg: string; text: string; accent: string; hover: string }> = {
+    Leadership: { bg: "bg-amber-400", text: "text-slate-900", accent: "decoration-amber-400", hover: "hover:bg-amber-400" },
+    Entrepreneurship: { bg: "bg-teal-400", text: "text-slate-900", accent: "decoration-teal-400", hover: "hover:bg-teal-400" },
+    "Public Policy": { bg: "bg-indigo-400", text: "text-slate-900", accent: "decoration-indigo-400", hover: "hover:bg-indigo-400" },
+    Digital: { bg: "bg-blue-400", text: "text-slate-900", accent: "decoration-blue-400", hover: "hover:bg-blue-400" },
+    Mentoring: { bg: "bg-rose-400", text: "text-slate-900", accent: "decoration-rose-400", hover: "hover:bg-rose-400" },
+    Webinar: { bg: "bg-purple-400", text: "text-slate-900", accent: "decoration-purple-400", hover: "hover:bg-purple-400" },
+    Workshop: { bg: "bg-emerald-400", text: "text-slate-900", accent: "decoration-emerald-400", hover: "hover:bg-emerald-400" },
+  };
+
+  const getColors = (category: string) =>
+    categoryColors[category] || { bg: "bg-amber-400", text: "text-slate-900", accent: "decoration-amber-400", hover: "hover:bg-amber-400" };
+
   return (
     <main className="mx-auto max-w-none px-6 py-10 md:px-12 lg:px-24">
       {/* Hero Section */}
@@ -48,107 +74,144 @@ export default function Home() {
         <div className="mb-12 flex flex-col items-start justify-between border-b-8 border-slate-900 pb-6 dark:border-slate-100 md:flex-row md:items-end gap-6">
           <div>
             <h2 className="mb-2 text-4xl font-black uppercase tracking-tighter text-slate-900 dark:text-white">
-              Kegiatan Strategis
+              Program Aktif
             </h2>
             <p className="text-lg font-bold text-slate-600 dark:text-slate-400 border-l-4 border-amber-500 pl-3">
               Jejak langkah kami dalam memberdayakan masyarakat dan mencetak inovator baru.
             </p>
           </div>
           <div className="flex gap-4">
-            <button className="flex items-center gap-2 border-4 border-slate-900 bg-white px-6 py-2 font-black uppercase text-slate-900 transition-all hover:bg-amber-400 shadow-[4px_4px_0px_0px_rgba(15,23,42,1)] dark:border-slate-100 dark:bg-slate-900 dark:text-white dark:hover:bg-amber-500 dark:hover:text-slate-900 dark:shadow-[4px_4px_0px_0px_rgba(241,245,249,1)]">
-              Lihat Semua <span className="material-symbols-outlined">chevron_right</span>
-            </button>
+            <Link href="/program">
+              <button className="flex items-center gap-2 border-4 border-slate-900 bg-white px-6 py-2 font-black uppercase text-slate-900 transition-all hover:bg-amber-400 shadow-[4px_4px_0px_0px_rgba(15,23,42,1)] dark:border-slate-100 dark:bg-slate-900 dark:text-white dark:hover:bg-amber-500 dark:hover:text-slate-900 dark:shadow-[4px_4px_0px_0px_rgba(241,245,249,1)]">
+                Lihat Semua <span className="material-symbols-outlined">chevron_right</span>
+              </button>
+            </Link>
           </div>
         </div>
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3">
-          {/* Card 1 */}
-          <div className="group flex h-full flex-col border-4 border-slate-900 bg-white transition-transform hover:-translate-y-2 shadow-[8px_8px_0px_0px_rgba(15,23,42,1)] hover:shadow-[16px_16px_0px_0px_rgba(15,23,42,1)] dark:border-slate-100 dark:bg-slate-900 dark:shadow-[8px_8px_0px_0px_rgba(241,245,249,1)] dark:hover:shadow-[16px_16px_0px_0px_rgba(241,245,249,1)]">
-            <div className="relative aspect-video w-full overflow-hidden border-b-4 border-slate-900 dark:border-slate-100">
-              <img
-                className="h-full w-full object-cover grayscale transition-transform duration-500 group-hover:scale-105 group-hover:grayscale-0"
-                alt="Social Work"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuANiM87MG1FEUiSI_SjVsr3Ic1F4E8uPWmjfub6bpl6zIFZo8puUGbfc6gh1TLbekhaxgysId_j-n8z_QYp2dL3S8DGgY5yWAT_HStIdLA7YMSoEDb2pSq9hWIdD7B4JArJUSJvu-lEZ2bw07JFK4pgktAaug345d-t8Aaif-9eb12oIrXqMYEIZG31kaGNTOOoD0p-0e6lMjPe2SQ6zZwdx3_wBCPaji2m-9Vn6MOLLdqfeAUlJPn1WWnQ1lcGczGYBPqjeaLBcdEQ"
-              />
-              <div className="absolute left-4 top-4 border-2 border-slate-900 bg-amber-400 px-3 py-1.5 text-[10px] font-black uppercase tracking-widest text-slate-900 shadow-[2px_2px_0px_0px_rgba(15,23,42,1)]">
-                Social Work
-              </div>
-            </div>
-            <div className="flex flex-1 flex-col p-6">
-              <div className="mb-4 flex items-center gap-2 border-l-2 border-slate-900 pl-2 dark:border-slate-100 text-xs font-black uppercase tracking-widest text-slate-500 dark:text-slate-400">
-                <span className="material-symbols-outlined text-sm">calendar_month</span>
-                <span>15 Mei 2026</span>
-              </div>
-              <h3 className="mb-4 text-2xl font-black uppercase leading-tight text-slate-900 dark:text-slate-100 decoration-4 underline-offset-4 group-hover:underline decoration-amber-400">
-                Aksi Literasi Desa Terpadu
-              </h3>
-              <p className="mb-8 text-sm font-medium leading-relaxed text-slate-700 dark:text-slate-300">
-                Penyaluran sarana belajar dan pelatihan keterampilan dasar bagi masyarakat di daerah tertinggal sebagai bagian dari misi sosial.
-              </p>
-              <button className="mt-auto border-4 border-slate-900 bg-slate-900 px-6 py-3 font-black uppercase text-white transition-all hover:bg-amber-400 hover:text-slate-900 shadow-[4px_4px_0px_0px_rgba(15,23,42,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none dark:border-slate-100 dark:bg-white dark:text-slate-900 dark:shadow-[4px_4px_0px_0px_rgba(241,245,249,1)] dark:hover:bg-amber-400">
-                Baca Selengkapnya
-              </button>
-            </div>
+        
+        {activePrograms.length === 0 ? (
+          <div className="border-4 border-slate-900 bg-slate-50 p-12 text-center dark:border-slate-100 dark:bg-slate-800">
+            <p className="text-xl font-bold text-slate-500">Belum ada program aktif saat ini.</p>
           </div>
+        ) : (
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3">
+            {activePrograms.map((program) => {
+              const colors = getColors(program.category);
+              return (
+                <div key={program.id} className="group flex h-full flex-col border-4 border-slate-900 bg-white transition-transform hover:-translate-y-2 shadow-[8px_8px_0px_0px_rgba(15,23,42,1)] hover:shadow-[16px_16px_0px_0px_rgba(15,23,42,1)] dark:border-slate-100 dark:bg-slate-900 dark:shadow-[8px_8px_0px_0px_rgba(241,245,249,1)] dark:hover:shadow-[16px_16px_0px_0px_rgba(241,245,249,1)]">
+                  <div className="relative aspect-video w-full overflow-hidden border-b-4 border-slate-900 dark:border-slate-100">
+                    {program.image_url ? (
+                      <img
+                        className="h-full w-full object-cover grayscale transition-transform duration-500 group-hover:scale-105 group-hover:grayscale-0"
+                        alt={program.title}
+                        src={program.image_url}
+                      />
+                    ) : (
+                      <div className="flex h-full w-full items-center justify-center bg-slate-200 dark:bg-slate-800">
+                        <span className="material-symbols-outlined text-6xl text-slate-400">image</span>
+                      </div>
+                    )}
+                    <div className={`absolute left-4 top-4 border-2 border-slate-900 ${colors.bg} px-3 py-1.5 text-[10px] font-black uppercase tracking-widest ${colors.text} shadow-[2px_2px_0px_0px_rgba(15,23,42,1)]`}>
+                      {program.category}
+                    </div>
+                  </div>
+                  <div className="flex flex-1 flex-col p-6">
+                    <div className="mb-4 flex items-center gap-2 border-l-2 border-slate-900 pl-2 dark:border-slate-100 text-xs font-black uppercase tracking-widest text-slate-500 dark:text-slate-400">
+                      <span className="material-symbols-outlined text-sm">calendar_month</span>
+                      <span>
+                        {program.start_date
+                          ? new Date(program.start_date).toLocaleDateString("id-ID", { day: "numeric", month: "long", year: "numeric" })
+                          : "Segera Hadir"}
+                      </span>
+                    </div>
+                    <h3 className={`mb-4 text-2xl font-black uppercase leading-tight text-slate-900 dark:text-slate-100 decoration-4 underline-offset-4 group-hover:underline ${colors.accent}`}>
+                      {program.title}
+                    </h3>
+                    <p className="mb-8 text-sm font-medium leading-relaxed text-slate-700 dark:text-slate-300 line-clamp-3">
+                      {program.description}
+                    </p>
+                    <Link href={`/program`} className="mt-auto">
+                      <button className={`w-full border-4 border-slate-900 bg-slate-900 px-6 py-3 font-black uppercase text-white transition-all ${colors.hover} hover:text-slate-900 shadow-[4px_4px_0px_0px_rgba(15,23,42,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none dark:border-slate-100 dark:bg-white dark:text-slate-900 dark:shadow-[4px_4px_0px_0px_rgba(241,245,249,1)] ${colors.hover}`}>
+                        Baca Selengkapnya
+                      </button>
+                    </Link>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        )}
+      </section>
 
-          {/* Card 2 */}
-          <div className="group flex h-full flex-col border-4 border-slate-900 bg-white transition-transform hover:-translate-y-2 shadow-[8px_8px_0px_0px_rgba(15,23,42,1)] hover:shadow-[16px_16px_0px_0px_rgba(15,23,42,1)] dark:border-slate-100 dark:bg-slate-900 dark:shadow-[8px_8px_0px_0px_rgba(241,245,249,1)] dark:hover:shadow-[16px_16px_0px_0px_rgba(241,245,249,1)]">
-            <div className="relative aspect-video w-full overflow-hidden border-b-4 border-slate-900 dark:border-slate-100">
-              <img
-                className="h-full w-full object-cover grayscale transition-transform duration-500 group-hover:scale-105 group-hover:grayscale-0"
-                alt="Entrepreneurship"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJ_BRaEosEOrIL5OFI7A2JPZUARFydippQRhTR7ATxJ2IGJq2lMjxVf_W_ojR5YghRJwLfSBvPws5Yi0SsXrxPXwzJ3oedaXi64xlQb-GBNPBaOWk8mc9v-oGH53zFMXFtAvpUwp1p2Vb6XTKMDPoWj6tIiOt4PkDIu9XPuyPz7XUgdfOsNOV3itBflYTsAMCgXdoGBbogzYLE2ONmrTNJz9sw-3XFULrewE8Hky0vA9Psca9E5MtODJ6WOwz1JXp1SX3ZnHRBjH-L"
-              />
-              <div className="absolute left-4 top-4 border-2 border-slate-900 bg-teal-400 px-3 py-1.5 text-[10px] font-black uppercase tracking-widest text-slate-900 shadow-[2px_2px_0px_0px_rgba(15,23,42,1)]">
-                Entrepreneurship
-              </div>
-            </div>
-            <div className="flex flex-1 flex-col p-6">
-              <div className="mb-4 flex items-center gap-2 border-l-2 border-slate-900 pl-2 dark:border-slate-100 text-xs font-black uppercase tracking-widest text-slate-500 dark:text-slate-400">
-                <span className="material-symbols-outlined text-sm">calendar_month</span>
-                <span>10 Mei 2026</span>
-              </div>
-              <h3 className="mb-4 text-2xl font-black uppercase leading-tight text-slate-900 dark:text-slate-100 decoration-4 underline-offset-4 group-hover:underline decoration-teal-400">
-                Startup Leadership Bootcamp
-              </h3>
-              <p className="mb-8 text-sm font-medium leading-relaxed text-slate-700 dark:text-slate-300">
-                Pelatihan intensif bagi wirausahawan muda untuk membangun pondasi organisasi yang kuat dan strategi bisnis berkelanjutan.
-              </p>
-              <button className="mt-auto border-4 border-slate-900 bg-slate-900 px-6 py-3 font-black uppercase text-white transition-all hover:bg-teal-400 hover:text-slate-900 shadow-[4px_4px_0px_0px_rgba(15,23,42,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none dark:border-slate-100 dark:bg-white dark:text-slate-900 dark:shadow-[4px_4px_0px_0px_rgba(241,245,249,1)] dark:hover:bg-teal-400">
-                Baca Selengkapnya
-              </button>
-            </div>
+      {/* Instagram Feed Section (Commented for now)
+      <section className="mb-24">
+        <div className="mb-12 flex flex-col items-start justify-between border-b-8 border-slate-900 pb-6 dark:border-slate-100 md:flex-row md:items-end gap-6">
+          <div>
+            <h2 className="mb-2 text-4xl font-black uppercase tracking-tighter text-slate-900 dark:text-white flex items-center gap-3">
+              <span className="material-symbols-outlined text-4xl">photo_camera</span> Kabar Lingkar
+            </h2>
+            <p className="text-lg font-bold text-slate-600 dark:text-slate-400 border-l-4 border-rose-500 pl-3">
+              Ikuti perjalanan dan aksi nyata kami melalui Instagram @lingkarvisioner.
+            </p>
           </div>
-
-          {/* Card 3 */}
-          <div className="group flex h-full flex-col border-4 border-slate-900 bg-white transition-transform hover:-translate-y-2 shadow-[8px_8px_0px_0px_rgba(15,23,42,1)] hover:shadow-[16px_16px_0px_0px_rgba(15,23,42,1)] dark:border-slate-100 dark:bg-slate-900 dark:shadow-[8px_8px_0px_0px_rgba(241,245,249,1)] dark:hover:shadow-[16px_16px_0px_0px_rgba(241,245,249,1)]">
-            <div className="relative aspect-video w-full overflow-hidden border-b-4 border-slate-900 dark:border-slate-100">
-              <img
-                className="h-full w-full object-cover grayscale transition-transform duration-500 group-hover:scale-105 group-hover:grayscale-0"
-                alt="Politics"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJsAF7TKzjty7tsZHw70DmC_mCdBYqnQgXhAi9FrP0L3qTotz0EoCYkm_TU7NP0mpGhpjWFXuZJZtoe6sn90bvv7gjlhKnyT0AE4gHOHFBHON98G3NJ7Z-iHPRmuHWns8RoSY_83KnhMmdcoPJZxf5X2TFPXrFmpQwKgdjFinek1QTBW2SjSE2e4LcWgioz1htxfXEoP-m837GYJqCrje7NZanRKrTGsElVwuqdLDeUxCyKHcks5nrl1wiFdYJsESE2HZe2t8vG69e"
-              />
-              <div className="absolute left-4 top-4 border-2 border-slate-900 bg-indigo-400 px-3 py-1.5 text-[10px] font-black uppercase tracking-widest text-slate-900 shadow-[2px_2px_0px_0px_rgba(15,23,42,1)]">
-                Politics
-              </div>
-            </div>
-            <div className="flex flex-1 flex-col p-6">
-              <div className="mb-4 flex items-center gap-2 border-l-2 border-slate-900 pl-2 dark:border-slate-100 text-xs font-black uppercase tracking-widest text-slate-500 dark:text-slate-400">
-                <span className="material-symbols-outlined text-sm">calendar_month</span>
-                <span>02 Mei 2026</span>
-              </div>
-              <h3 className="mb-4 text-2xl font-black uppercase leading-tight text-slate-900 dark:text-slate-100 decoration-4 underline-offset-4 group-hover:underline decoration-indigo-400">
-                Forum Dialektika Kebijakan
-              </h3>
-              <p className="mb-8 text-sm font-medium leading-relaxed text-slate-700 dark:text-slate-300">
-                Diskusi kritis mengenai peran pemuda dalam mengawal kebijakan publik demi transparansi dan keadilan sosial.
-              </p>
-              <button className="mt-auto border-4 border-slate-900 bg-slate-900 px-6 py-3 font-black uppercase text-white transition-all hover:bg-indigo-400 hover:text-slate-900 shadow-[4px_4px_0px_0px_rgba(15,23,42,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none dark:border-slate-100 dark:bg-white dark:text-slate-900 dark:shadow-[4px_4px_0px_0px_rgba(241,245,249,1)] dark:hover:bg-indigo-400">
-                Baca Selengkapnya
+          <div className="flex gap-4">
+            <Link href="https://instagram.com/lingkarvisioner" target="_blank" rel="noopener noreferrer">
+              <button className="flex items-center gap-2 border-4 border-slate-900 bg-white px-6 py-2 font-black uppercase text-slate-900 transition-all hover:bg-rose-400 shadow-[4px_4px_0px_0px_rgba(15,23,42,1)] dark:border-slate-100 dark:bg-slate-900 dark:text-white dark:hover:bg-rose-500 dark:hover:text-slate-900 dark:shadow-[4px_4px_0px_0px_rgba(241,245,249,1)]">
+                Follow IG <span className="material-symbols-outlined">external_link</span>
               </button>
-            </div>
+            </Link>
           </div>
+        </div>
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {[
+            {
+              id: 1,
+              img: "https://images.unsplash.com/photo-1540910419892-f7ef7173fdd4?q=80&w=2070&auto=format&fit=crop",
+              caption: "Aksi nyata untuk perubahan sosial yang lebih berdampak.",
+              date: "2 Hari yang lalu"
+            },
+            {
+              id: 2,
+              img: "https://images.unsplash.com/photo-1515187029135-18ee286d815b?q=80&w=2070&auto=format&fit=crop",
+              caption: "Membangun ekosistem kepemimpinan bagi masa depan.",
+              date: "4 Hari yang lalu"
+            },
+            {
+              id: 3,
+              img: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=2070&auto=format&fit=crop",
+              caption: "Kolaborasi adalah kunci inovasi di era digital.",
+              date: "1 Minggu yang lalu"
+            }
+          ].map((post) => (
+            <div key={post.id} className="group relative border-4 border-slate-900 bg-white shadow-[8px_8px_0px_0px_rgba(15,23,42,1)] transition-all hover:-translate-y-1 dark:border-slate-100 dark:bg-slate-900 dark:shadow-[8px_8px_0px_0px_rgba(241,245,249,1)]">
+              <div className="relative aspect-square overflow-hidden border-b-4 border-slate-900 dark:border-slate-100">
+                <img 
+                  src={post.img} 
+                  alt="Instagram Post" 
+                  className="h-full w-full object-cover grayscale transition-all duration-500 group-hover:scale-110 group-hover:grayscale-0"
+                />
+                <div className="absolute inset-0 flex items-center justify-center bg-slate-900 pb-12 opacity-0 transition-opacity duration-300 group-hover:opacity-40">
+                  <span className="material-symbols-outlined text-4xl text-white">favorite</span>
+                </div>
+              </div>
+              <div className="p-5">
+                <p className="mb-3 text-sm font-bold text-slate-700 dark:text-slate-300 line-clamp-2">
+                  {post.caption}
+                </p>
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-black uppercase tracking-widest text-slate-400">
+                    {post.date}
+                  </span>
+                  <Link href="https://instagram.com/lingkarvisioner" target="_blank" className="text-slate-900 dark:text-white transition-colors hover:text-rose-500 dark:hover:text-rose-400">
+                    <span className="material-symbols-outlined text-lg">open_in_new</span>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
+      */}
 
       {/* Latest Announcements Section */}
       <section className="mb-24 px-4 py-16 bg-slate-100 dark:bg-slate-800 border-x-0 border-y-8 border-slate-900 dark:border-slate-100">

@@ -37,7 +37,17 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background-light px-4 py-12 dark:bg-background-dark">
+    <div className="flex min-h-screen flex-col items-center justify-center bg-background-light px-4 py-12 dark:bg-background-dark">
+      <div className="mb-6 w-full max-w-md">
+        <Link 
+          href="/" 
+          className="group inline-flex items-center gap-2 font-black uppercase tracking-widest text-slate-900 transition-colors hover:text-teal-600 dark:text-white dark:hover:text-teal-400"
+        >
+          <span className="material-symbols-outlined text-xl transition-transform group-hover:-translate-x-1">arrow_back</span>
+          Kembali ke Beranda
+        </Link>
+      </div>
+
       <div className="w-full max-w-md border-4 border-slate-900 bg-white p-8 shadow-[12px_12px_0px_0px_rgba(15,23,42,1)] dark:border-slate-100 dark:bg-slate-900 dark:shadow-[12px_12px_0px_0px_rgba(241,245,249,1)]">
         <div className="mb-8 text-center">
           <Link href="/" className="mb-6 inline-block">
