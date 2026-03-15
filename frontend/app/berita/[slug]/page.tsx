@@ -5,8 +5,9 @@ import remarkGfm from "remark-gfm";
 import { format } from "date-fns";
 import { id } from "date-fns/locale";
 import Link from "next/link";
-import { ArrowLeft, Calendar, User, Tag, Share2, Eye } from "lucide-react";
+import { ArrowLeft, Calendar, User, Tag, Eye } from "lucide-react";
 import { Metadata } from "next";
+import ShareButton from "@/components/ShareButton";
 
 export async function generateMetadata({
   params,
@@ -145,9 +146,7 @@ export default async function BeritaDetailPage({
           </span>
         </div>
         <div className="ml-auto flex gap-2">
-          <button className="flex h-10 w-10 items-center justify-center border-2 border-slate-900 bg-white transition-all hover:bg-slate-100 dark:border-slate-100 dark:bg-slate-800">
-            <Share2 className="h-5 w-5" />
-          </button>
+          <ShareButton title={post.title} />
         </div>
       </div>
 
