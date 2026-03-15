@@ -3,6 +3,7 @@ import { Metadata } from 'next';
 import { getPublishedPosts } from '@/lib/services/posts';
 import { format } from 'date-fns';
 import { id } from 'date-fns/locale';
+import { Eye, Calendar, User, Edit3 } from 'lucide-react';
 
 const baseUrl = 'https://lingkarvisioner.com';
 
@@ -67,10 +68,13 @@ export default async function BeritaPage() {
                 </p>
                 <div className="mt-4 flex flex-wrap items-center gap-3 text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-slate-100">
                   <span className="flex items-center gap-1.5 border-2 border-slate-900 px-3 py-1.5 bg-white dark:bg-slate-800 dark:border-slate-100 shadow-[2px_2px_0px_0px_rgba(15,23,42,1)] dark:shadow-[2px_2px_0px_0px_rgba(241,245,249,1)]">
-                    <span className="material-symbols-outlined text-base">calendar_month</span> {formatDate(featurePost.published_at || featurePost.created_at)}
+                    <Calendar className="h-4 w-4 text-teal-600" /> {formatDate(featurePost.published_at || featurePost.created_at)}
                   </span>
                   <span className="flex items-center gap-1.5 border-2 border-slate-900 px-3 py-1.5 bg-white dark:bg-slate-800 dark:border-slate-100 shadow-[2px_2px_0px_0px_rgba(15,23,42,1)] dark:shadow-[2px_2px_0px_0px_rgba(241,245,249,1)]">
-                    <span className="material-symbols-outlined text-base">edit_note</span> {featurePost.author || "LIVI Team"}
+                    <User className="h-4 w-4 text-teal-600" /> {featurePost.author || "LIVI Team"}
+                  </span>
+                  <span className="flex items-center gap-1.5 border-2 border-slate-900 px-3 py-1.5 bg-white dark:bg-slate-800 dark:border-slate-100 shadow-[2px_2px_0px_0px_rgba(15,23,42,1)] dark:shadow-[2px_2px_0px_0px_rgba(241,245,249,1)]">
+                    <Eye className="h-4 w-4 text-teal-600" /> {featurePost.views || 0}
                   </span>
                 </div>
               </div>
@@ -103,11 +107,15 @@ export default async function BeritaPage() {
                     </span>
                   </div>
                 </div>
-                <div className="p-6 flex flex-col flex-1">
+                 <div className="p-6 flex flex-col flex-1">
                   <h4 className="mb-3 text-xl font-black uppercase leading-tight text-slate-900 decoration-4 underline-offset-4 group-hover:underline dark:text-slate-100 decoration-teal-600">
                     {post.title}
                   </h4>
-                  <p className="text-sm font-medium text-slate-700 dark:text-slate-400 mt-auto">
+                  <div className="flex items-center gap-3 text-[10px] font-black uppercase tracking-widest text-slate-500 mb-4 pb-2 border-b-2 border-slate-100 dark:border-slate-800">
+                    <span className="flex items-center gap-1"><Calendar className="h-3 w-3" /> {formatDate(post.published_at || post.created_at)}</span>
+                    <span className="flex items-center gap-1"><Eye className="h-3 w-3" /> {post.views || 0}</span>
+                  </div>
+                  <p className="text-sm font-medium text-slate-700 dark:text-slate-400 mt-auto line-clamp-2">
                     {post.summary}
                   </p>
                 </div>
@@ -134,9 +142,12 @@ export default async function BeritaPage() {
                     <h5 className="text-base font-black uppercase leading-tight transition-colors group-hover:text-teal-400">
                       {post.title}
                     </h5>
-                    <p className="mt-2 text-[10px] font-black text-slate-400 tracking-widest bg-slate-800 inline-block px-2 py-1 uppercase">
-                      {formatDate(post.published_at || post.created_at)}
-                    </p>
+                    <div className="mt-3 flex items-center gap-3">
+                      <p className="text-[10px] font-black text-slate-400 tracking-widest bg-slate-800 inline-block px-2 py-1 uppercase">
+                        {formatDate(post.published_at || post.created_at)}
+                      </p>
+                      <span className="flex items-center gap-1 text-[10px] font-black text-slate-500 uppercase"><Eye className="h-3 w-3 text-teal-400" /> {post.views || 0}</span>
+                    </div>
                   </div>
                 </Link>
               ))}
@@ -174,11 +185,14 @@ export default async function BeritaPage() {
                   <span className="absolute -left-4 -top-4 text-7xl text-teal-200 dark:text-teal-900/50 -z-10 font-serif">"</span>
                   {post.title}
                 </h4>
-                <div className="mb-6 flex flex-wrap items-center gap-4 border-l-4 border-teal-600 pl-4 py-1">
+                 <div className="mb-6 flex flex-wrap items-center gap-4 border-l-4 border-teal-600 pl-4 py-1">
                   <span className="font-black uppercase tracking-widest text-slate-900 dark:text-slate-100 bg-teal-200 dark:bg-teal-900/50 px-2 py-1">
                     {post.author}
                   </span>
                   <span className="text-xs font-bold text-slate-500 uppercase">{post.author_role}</span>
+                  <span className="flex items-center gap-1 text-xs font-black text-slate-500 uppercase ml-auto">
+                    <Eye className="h-4 w-4 text-teal-600" /> {post.views || 0} DILIHAT
+                  </span>
                 </div>
                 <p className="mb-8 text-base font-medium leading-relaxed text-slate-700 dark:text-slate-300">
                   {post.summary}

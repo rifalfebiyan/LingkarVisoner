@@ -34,3 +34,8 @@ export async function getPostById(id: string) {
     .eq('id', id)
     .single();
 }
+
+export async function incrementViews(postId: string) {
+  const supabase = await createClient();
+  return supabase.rpc('increment_post_views', { post_id: postId });
+}

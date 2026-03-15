@@ -1,11 +1,11 @@
-import { getPostBySlug } from "@/lib/services/posts";
+import { getPostBySlug, incrementViews } from "@/lib/services/posts";
 import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { format } from "date-fns";
 import { id } from "date-fns/locale";
 import Link from "next/link";
-import { ArrowLeft, Calendar, User, Tag, Share2 } from "lucide-react";
+import { ArrowLeft, Calendar, User, Tag, Share2, Eye } from "lucide-react";
 import { Metadata } from "next";
 
 export async function generateMetadata({
@@ -66,6 +66,9 @@ export default async function BeritaDetailPage({
   if (error || !post) {
     return notFound();
   }
+
+  // Increment views in background
+  incrementViews(post.id).catch(console.error);
 
   const formatDate = (dateStr: string) => {
     return format(new Date(dateStr), "dd MMMM yyyy", { locale: id });
@@ -129,10 +132,16 @@ export default async function BeritaDetailPage({
             <span className="text-[10px] font-bold text-slate-500 uppercase">{post.author_role}</span>
           </div>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 border-l-4 border-slate-200 pl-6 dark:border-slate-800">
           <Calendar className="h-5 w-5 text-teal-600" />
           <span className="text-sm font-bold text-slate-700 dark:text-slate-300">
             {formatDate(post.published_at || post.created_at)}
+          </span>
+        </div>
+        <div className="flex items-center gap-2 border-l-4 border-slate-200 pl-6 dark:border-slate-800">
+          <Eye className="h-5 w-5 text-teal-600" />
+          <span className="text-sm font-bold text-slate-700 dark:text-slate-300">
+            {post.views || 0} Kali Dilihat
           </span>
         </div>
         <div className="ml-auto flex gap-2">
