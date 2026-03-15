@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Inter } from "next/font/google";
 import LayoutWrapper from "@/components/LayoutWrapper";
 import { ThemeProvider } from "@/components/theme-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import SessionMonitor from "@/components/SessionMonitor";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -108,6 +109,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <TooltipProvider>
+            <SessionMonitor />
             <div className="relative flex min-h-screen w-full flex-col">
               <LayoutWrapper>{children}</LayoutWrapper>
             </div>
