@@ -15,16 +15,42 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const { data: post } = await getPostBySlug(slug);
+  const baseUrl = 'https://lingkarvisioner.com';
   
   if (!post) return { title: "Berita Tidak Ditemukan" };
 
+  const postUrl = `${baseUrl}/berita/${slug}`;
+  const title = post.title;
+  const description = post.summary || post.title;
+  const image = post.image_url || `${baseUrl}/og-image.png`;
+
   return {
-    title: post.title,
-    description: post.summary || post.title,
+    title,
+    description,
+    alternates: {
+      canonical: postUrl,
+    },
     openGraph: {
-      title: post.title,
-      description: post.summary || post.title,
-      images: [post.image_url || "/og-image.png"],
+      title,
+      description,
+      url: postUrl,
+      type: 'article',
+      publishedTime: post.published_at || post.created_at,
+      authors: [post.author || 'LIVI editorial'],
+      images: [
+        {
+          url: image,
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [image],
     },
   };
 }
@@ -45,8 +71,35 @@ export default async function BeritaDetailPage({
     return format(new Date(dateStr), "dd MMMM yyyy", { locale: id });
   };
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    "headline": post.title,
+    "description": post.summary || post.title,
+    "image": [post.image_url || 'https://lingkarvisioner.com/og-image.png'],
+    "datePublished": post.published_at || post.created_at,
+    "dateModified": post.updated_at || post.published_at || post.created_at,
+    "author": [{
+      "@type": "Person",
+      "name": post.author || "LIVI Editorial",
+      "jobTitle": post.author_role || "Writer"
+    }],
+    "publisher": {
+      "@type": "Organization",
+      "name": "Lingkar Visioner",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://lingkarvisioner.com/logo-livi.png"
+      }
+    }
+  };
+
   return (
     <main className="mx-auto max-w-4xl px-6 py-10 md:px-12 lg:py-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Link
         href="/berita"
         className="mb-8 inline-flex items-center gap-2 font-black uppercase tracking-widest text-slate-900 transition-all hover:text-teal-600 dark:text-slate-100"

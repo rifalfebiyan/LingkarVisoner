@@ -4,9 +4,20 @@ import { getPublishedPosts } from '@/lib/services/posts';
 import { format } from 'date-fns';
 import { id } from 'date-fns/locale';
 
+const baseUrl = 'https://lingkarvisioner.com';
+
 export const metadata: Metadata = {
-  title: "Berita & Gagasan",
+  title: "Berita & Gagasan | Lingkar Visioner",
   description: "Update terbaru, artikel kepemimpinan, dan opini seputar isu terkini dari Lingkar Visioner.",
+  alternates: {
+    canonical: `${baseUrl}/berita`,
+  },
+  openGraph: {
+    title: "Berita & Gagasan | Lingkar Visioner",
+    description: "Update terbaru, artikel kepemimpinan, dan opini seputar isu terkini dari Lingkar Visioner.",
+    url: `${baseUrl}/berita`,
+    type: 'website',
+  },
 };
 
 export default async function BeritaPage() {
