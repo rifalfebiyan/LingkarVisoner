@@ -88,7 +88,7 @@ export default async function Home() {
             </Link>
           </div>
         </div>
-        
+
         {activePrograms.length === 0 ? (
           <div className="border-4 border-slate-900 bg-slate-50 p-12 text-center dark:border-slate-100 dark:bg-slate-800">
             <p className="text-xl font-bold text-slate-500">Belum ada program aktif saat ini.</p>
@@ -214,7 +214,7 @@ export default async function Home() {
       */}
 
       {/* Latest Announcements Section */}
-      <section className="mb-24 px-4 py-16 bg-slate-100 dark:bg-slate-800 border-x-0 border-y-8 border-slate-900 dark:border-slate-100">
+      {/* <section className="mb-24 px-4 py-16 bg-slate-100 dark:bg-slate-800 border-x-0 border-y-8 border-slate-900 dark:border-slate-100">
         <div className="mx-auto max-w-7xl">
           <div className="mb-12 text-center border-b-8 border-slate-900 dark:border-slate-100 pb-8 mx-auto max-w-2xl">
             <h2 className="text-4xl font-black uppercase tracking-tighter text-slate-900 dark:text-white flex items-center justify-center gap-4">
@@ -222,7 +222,7 @@ export default async function Home() {
             </h2>
           </div>
           <div className="mx-auto max-w-4xl space-y-8">
-            {/* Announcement 1 */}
+          
             <div className="flex flex-col md:flex-row items-center gap-6 border-4 border-slate-900 bg-white p-6 shadow-[8px_8px_0px_0px_rgba(15,23,42,1)] transition-transform hover:-translate-y-1 dark:border-slate-100 dark:bg-slate-900 dark:shadow-[8px_8px_0px_0px_rgba(241,245,249,1)]">
               <div className="flex h-24 w-24 shrink-0 flex-col items-center justify-center border-4 border-slate-900 bg-teal-400 text-slate-900 shadow-[4px_4px_0px_0px_rgba(15,23,42,1)]">
                 <span className="text-3xl font-black">01</span>
@@ -241,7 +241,7 @@ export default async function Home() {
               </button>
             </div>
 
-            {/* Announcement 2 */}
+        
             <div className="flex flex-col md:flex-row items-center gap-6 border-4 border-slate-900 bg-white p-6 shadow-[8px_8px_0px_0px_rgba(15,23,42,1)] transition-transform hover:-translate-y-1 dark:border-slate-100 dark:bg-slate-900 dark:shadow-[8px_8px_0px_0px_rgba(241,245,249,1)]">
               <div className="flex h-24 w-24 shrink-0 flex-col items-center justify-center border-4 border-slate-900 bg-amber-400 text-slate-900 shadow-[4px_4px_0px_0px_rgba(15,23,42,1)]">
                 <span className="text-3xl font-black">20</span>
@@ -261,7 +261,7 @@ export default async function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </main>
   );
 }

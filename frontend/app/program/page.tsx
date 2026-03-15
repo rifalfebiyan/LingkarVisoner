@@ -226,7 +226,7 @@ export default async function ProgramPage() {
       </section>
 
       {/* Testimonials */}
-      <section className="mb-10 text-center flex flex-col items-center">
+      {/* <section className="mb-10 text-center flex flex-col items-center">
         <h2 className="mb-12 inline-block border-b-8 border-amber-500 pb-2 text-4xl font-black uppercase tracking-tighter text-slate-900 dark:text-white">
           Apa Kata Mereka?
         </h2>
@@ -277,7 +277,7 @@ export default async function ProgramPage() {
             </div>
           ))}
         </div>
-      </section>
+      </section> */}
     </main>
   );
 }
