@@ -173,7 +173,7 @@ export default function TentangKamiPage() {
             Nilai-Nilai Kami
           </h2>
           <h3 className="mx-auto max-w-3xl text-4xl font-black uppercase leading-tight tracking-tighter text-white md:text-5xl">
-            Integritas, Intelektualitas, Impact
+            Inklusif, Edukatif, Kolaboratif
           </h3>
         </div>
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
