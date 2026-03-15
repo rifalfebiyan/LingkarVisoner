@@ -93,8 +93,8 @@ export default function TentangKamiPage() {
               />
             </div>
             <div className="absolute -bottom-8 -right-8 hidden max-w-[240px] border-4 border-slate-900 bg-white p-8 text-slate-900 shadow-[8px_8px_0px_0px_rgba(15,23,42,1)] lg:block dark:border-slate-100 dark:bg-slate-900 dark:text-white dark:shadow-[8px_8px_0px_0px_rgba(241,245,249,1)]">
-              <p className="mb-2 text-5xl font-black text-amber-500 decoration-4 underline-offset-4 underline">500+</p>
-              <p className="text-sm font-black uppercase tracking-widest leading-snug">Pemimpin Muda Terinkubasi</p>
+              <p className="mb-2 text-5xl font-black text-amber-500 decoration-4 underline-offset-4 underline">100+</p>
+              <p className="text-sm font-black uppercase tracking-widest leading-snug">Pemuda Terlibat</p>
             </div>
           </div>
         </div>
