@@ -8,6 +8,7 @@ import {
   ChevronUp,
   User2,
   Users,
+  Image as ImageIcon,
 } from "lucide-react"
 
 import {
@@ -81,6 +82,11 @@ const adminItems = [
     title: "Konten Berita",
     url: "/dashboard/admin/berita",
     icon: Newspaper,
+  },
+  {
+    title: "Kelola Media",
+    url: "/dashboard/admin/media",
+    icon: ImageIcon,
   },
   {
     title: "System Settings",
